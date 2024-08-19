@@ -1,11 +1,10 @@
-﻿@using Umbraco.Cms.Core.Models.Blocks
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 
 @{
     var typedMediaPickerSingle = Model.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
     if (typedMediaPickerSingle != null)
     {
-        <img src="@typedMediaPickerSingle.MediaUrl()" style="object-fit:cover; width:100%; height:100%;"/>
+        <img src="@typedMediaPickerSingle.MediaUrl()" style="object-fit:cover; width:100%; height:100%;" alt="@typedMediaPickerSingle.Name"/>
     } else {
         <p>Missing image</p>
     }
