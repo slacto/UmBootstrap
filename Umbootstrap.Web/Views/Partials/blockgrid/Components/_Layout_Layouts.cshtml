@@ -12,6 +12,8 @@
     // Get the layout settings
     var hasSettings = Model.Settings != null;
 
+    var sectionTitle = Model.Settings.Value<string>("layoutSettingsSectionTitle");
+
     var backgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker") : null;
 
     var colorLabel = backgroundColour?.Label;
@@ -54,10 +56,10 @@
     }
 }
 
-<div class="layout-item py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
+<section class="layout-item py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias" aria-label="@sectionTitle">
     @RenderBody()
     @* <h2>@myColor</h2> *@
-</div>
+</section>
 
 @* @{
     // Uncomment this block to Debug colours

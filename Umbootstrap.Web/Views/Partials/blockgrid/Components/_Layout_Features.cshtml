@@ -8,7 +8,7 @@
     string featureTitle = Model.Content.Value<string>("featurePropertyFeatureTitle");
     string featureDescription = Model.Content.Value<string>("featurePropertyFeatureDescription");
     string featureSummary = Model.Content.Value<string>("featurePropertyFeatureSummary");
-
+    string label = !string.IsNullOrWhiteSpace(featureTitle) ? featureTitle : !string.IsNullOrEmpty(featureDescription) ? featureDescription : !string.IsNullOrWhiteSpace(featureSummary) ? featureSummary : "Feature";
     var umbracoContext = UmbracoContextFactory.EnsureUmbracoContext();
 
     // Check if the block grid item has settings
@@ -35,7 +35,7 @@
 // If the feature is not hidden or null, render the feature
 
 {
-    <section class="feature-item @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+    <article class="feature-item @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")" aria-label="@label">
         @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
         // If either the title or description is not empty, render the header
         {
@@ -66,7 +66,7 @@
                 }
             </footer>
         }
-    </section>
+    </article>
 }
 else
 {
@@ -75,7 +75,7 @@ else
     if (umbracoContext.UmbracoContext.InPreviewMode)
     {
         // Render only in back office preview mode
-        <section class="feature @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+        <article class="feature @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")" aria-label="@label">
             @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
             // If either the title or description is not empty, render the header
             {
@@ -106,7 +106,7 @@ else
                     }
                 </footer>
             }
-        </section>
+        </article>
     }
     else
     {
