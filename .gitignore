@@ -386,3 +386,5 @@ MigrationBackup/
 **/umbraco/Logs/
 
 **/umbraco/mediacache/
+
+Umbootstrap.Web/App_Plugins/AccessibilityReporter/

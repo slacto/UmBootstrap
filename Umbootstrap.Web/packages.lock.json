@@ -51,6 +51,16 @@
           "Umbraco.Cms.Targets": "[13.4.0, 14.0.0)"
         }
       },
+      "Umbraco.Community.AccessibilityReporter": {
+        "type": "Direct",
+        "requested": "[3.2.1, )",
+        "resolved": "3.2.1",
+        "contentHash": "+l6+Y6WCoX/DxZv5CPdjDMpBIg46ewdq6YCOYHR1C4GUyC6hZA4+vYRjOzlvUBO4XsCEANz0cMBTMEf25OM7tA==",
+        "dependencies": {
+          "Umbraco.Cms.Web.BackOffice": "10.0.0",
+          "Umbraco.Cms.Web.Website": "10.0.0"
+        }
+      },
       "Umbraco.Community.BlockPreview": {
         "type": "Direct",
         "requested": "[1.8.4, )",
